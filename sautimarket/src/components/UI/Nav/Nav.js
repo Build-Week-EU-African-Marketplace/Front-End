@@ -4,9 +4,9 @@ import "./nav.css"
 export default function Navigation() {
 return (
 <nav>
-<div class = "nav-signup">Signup</div>
-<div class = "nav-login">Login</div>
-<div class = "nav-product">Product List</div>
+<div class = "nav-signup"><a href ="#">Signup</a></div>
+<div class = "nav-login"><a href ="#">Login</a></div>
+<div class = "nav-product"><a href ="#">Product List</a></div>
 </nav>
 );
 }
