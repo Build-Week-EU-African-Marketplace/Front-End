@@ -1,6 +1,9 @@
 nav {
+    margin: 0;
     max-width: 1024px;
     background: yellow;
     padding: 15px;
-    width:
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
