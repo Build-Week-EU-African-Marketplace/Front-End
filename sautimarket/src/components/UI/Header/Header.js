@@ -7,7 +7,7 @@ export default function Header(props) {
                 <div className="header-overlay">
                     {/* nav will be here */}
                     <div className="header-content">
-                        <div>
+                        <div className="header-content-detail">
                             <h1>22% OFF</h1>
                             <h3>On all purchases made</h3>
                             <h3>Through out this week</h3>
