@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import * as actionCreators from "../../actions/actionCreators";
 import {connect} from "react-redux";
+import Product from "./Product";
 
 function Products({addUser,loginUser}) {
 
@@ -15,7 +16,7 @@ function Products({addUser,loginUser}) {
 
 
     return <div>
-        products
+        <Product />
     </div>
 }
 
