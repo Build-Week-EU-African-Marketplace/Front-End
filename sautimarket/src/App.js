@@ -6,6 +6,8 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 
 
+import Products from "./components/Products/Products";
+
 function App() {
   return (
     <>
@@ -13,6 +15,8 @@ function App() {
     <Route path="/header" component={Header} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
+    <Route path="/products" component={Products} />
+
     </>
   );
 }
