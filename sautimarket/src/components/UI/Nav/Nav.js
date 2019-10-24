@@ -8,8 +8,9 @@ export default function Navigation () {
   return (
     <div>
         <nav>
-            <nav-logo>SautiWomen</nav-logo>
-        
+            <NavLink className="navlink" exact to="/" activeClassName="active">
+            <h1>SautiWomen</h1>
+            </NavLink>
             <NavLink className="navlink" exact to="/Login" activeClassName="active">
             Login
             </NavLink>

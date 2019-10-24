@@ -1,10 +1,10 @@
 nav {
-    margin-left: 12vw;
-    max-width: 1024px;
+    height: 10vh;
     background: black;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    box-shadow: 2em;
 }
 a {
     text-decoration: none;
