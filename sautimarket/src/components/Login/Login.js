@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import "./login.css";
 import Styled from "styled-components";
-import "./login.css";
 
 const Login = props => {
   const [existingUser, setExistingUser] = useState({
@@ -17,8 +16,6 @@ const Login = props => {
     axios
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", credentials)
       .then(res => {
-        // localStorage.setItem("token", res.data.authToken);
-        // localStorage.setItem("userID", decoded.subject);
         console.log(res.data);
         props.history.push("/Products/products");
       })
@@ -51,10 +48,10 @@ const Login = props => {
           onChange={handleNewUser}
         />
         <StyledButton>Login</StyledButton>
-        <StyledParagraph>
+        <StyledContent>
           You don't have an account? 
           <NavLink to="/Register"> Register</NavLink>
-        </StyledParagraph>
+        </StyledContent>
       </StyledForm>
     </div>
     </div>
@@ -123,7 +120,7 @@ const StyledButton = Styled.button`
     }
 `;
 
-const StyledParagraph = Styled.div`
+const StyledContent = Styled.div`
     text-align: center;
     margin-top:15px
 `;

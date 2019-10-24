@@ -12,14 +12,14 @@ const Register = props => {
     event.preventDefault();
     axios
       .post(
-        " https://lbs-african-marketplace.herokuapp.com/auth/login",
+        " https://lbs-african-marketplace.herokuapp.com/auth/register",
         credentials
       )
       .then(res => {
         localStorage.setItem("token", res.data.authToken);
 
         console.log(res.data);
-        props.history.push("/products");
+        props.history.push("/login");
       })
       .catch(err => console.log(err));
   };
@@ -55,10 +55,10 @@ const Register = props => {
           onChange={handleNewUser}
         />
         <StyledButton>Register</StyledButton>
-        <StyledParagraph>
+        <StyledContent>
           Do you have an account?
           <NavLink to="/Login">Log in</NavLink>
-        </StyledParagraph>
+        </StyledContent>
       </StyledForm>
     </div>
   );
@@ -126,7 +126,7 @@ const StyledButton = Styled.button`
     }
 `;
 
-const StyledParagraph = Styled.div`
+const StyledContent = Styled.div`
     text-align: center;
     margin-top:15px
 `;
