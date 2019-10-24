@@ -17,7 +17,8 @@ const Login = props => {
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", credentials)
       .then(res => {
         console.log(res.data);
-        props.history.push("/Products/products");
+        localStorage.setItem('token',res.data.token);
+        props.history.push("/dashboard");
       })
       .catch(err => setloginError("Wrong username/password"));
   };

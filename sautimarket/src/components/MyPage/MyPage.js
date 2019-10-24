@@ -136,6 +136,7 @@ export default function MyPage({ addItem }) {
         </div>
       </Modal>
       <Button
+      width="100px"
           onClick={getAllUsers}
           value="Get ALL users"
         />
