@@ -7,6 +7,8 @@ import Register from "./components/Register/Register";
 
 
 import Products from "./components/Products/Products";
+import MyPage from "./components/MyPage/MyPage";
+
 
 function App() {
   return (
