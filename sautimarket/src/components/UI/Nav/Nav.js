@@ -8,16 +8,17 @@ export default function Navigation () {
   return (
     <div>
         <nav>
-            <NavLink className="navlink" exact to="/" activeClassName="active">
-            <h1>SautiWomen</h1>
-            </NavLink>
-            <NavLink className="navlink" exact to="/Login" activeClassName="active">
-            Login
-            </NavLink>
-            &nbsp;
-            <NavLink className="navlink" exact to="/Register" activeClassName="active">
-            Register
-            </NavLink>
+                <div class = "logo">
+                <h1>SautiWomen</h1>
+                </div>
+                <div class = "link">
+                <NavLink className="navlink" exact to="/Login" activeClassName="active">
+                <h1>Login</h1>
+                </NavLink>
+                <NavLink className="navlink" exact to="/Register" activeClassName="active">
+                <h1>Register</h1>
+                </NavLink>
+                </div>
         </nav>
 
       <main>

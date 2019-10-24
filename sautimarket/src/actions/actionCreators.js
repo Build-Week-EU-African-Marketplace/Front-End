@@ -1,11 +1,6 @@
 import axiosWithAuth from "../auth/axiosWithAuth";
 import { userActions,itemActions } from "../actions/actions";
 
-// action creators here (7)
-// THIS IS THE PLACE FOR NASTY, IMPURE THINGS
-// like moment.js, uuid, Math.random, async...
-// COMPONENTS AND REDUCERS SHOULD NOT DEAL WITH THAT STUFF!
-
 const baseUrl = "https://lbs-african-marketplace.herokuapp.com"
 //users action creators
 export const addUser = (user) => dispatch => {
@@ -27,26 +22,6 @@ export const addUser = (user) => dispatch => {
         alert("couldnt add item");
     })
 }
-// export const loginUser = (user) => dispatch => {
-//     const options = {
-//         method:"POST",
-//         url:baseUrl + "/auth/login",
-//         data:user,
-//     }
-    
-//     axiosWithAuth(options)
-//     .then(res => {
-//         console.log(res.data);
-//         const {token} = res.data
-//         dispatch({
-//             type:userActions.LOGIN_USER,
-//             payload:res.data
-//         })
-//     })
-//     .catch(err => {
-//         alert("couldnt Login USER");
-//     })
-// }
 
 export function removeUser() {
     return {
@@ -67,9 +42,11 @@ export const addItem = (item) => dispatch => {
     axiosWithAuth(options)
     .then(res => {
         console.log(res.data);
+        const [id] = res.data;
+        item.id = id;
         dispatch({
             type:itemActions.ADD_ITEM,
-            payload:res.data
+            payload:item
         })
     })
     .catch(err => {
@@ -105,6 +82,7 @@ export const getItems = () => dispatch => {
     
     axiosWithAuth(options)
     .then(res => {
+        console.log(res.data)
         dispatch({
             type:itemActions.GET_ITEMS,
             payload:res.data
@@ -141,36 +119,3 @@ export const getAllItemsInCategory = (category) => dispatch => {
     })
 
 }
-
-
-// this is a special action creator.
-// instead of returning an action, it returns a function.
-// the thunk middleware will intercept this action creator.
-// and will call 'dispatch' for use, once the async stuff is done.
-
-// THIS ALLOWS TO REMOVE AXIOS LOGIC FROM THE COMPONENT!!!!!!!!!
-export const getStock = () => dispatch => {
-//   const fruitsPromise = axios.get(fruitsApi);
-//   const meatsPromise = axios.get(meatsApi);
-
-//   Promise.all([fruitsPromise, meatsPromise])
-//     .then(([fruitsApiResponse, meatsApiResponse]) => {
-//       const fruits = fruitsApiResponse.data;
-//       const meats = meatsApiResponse.data;
-
-//       dispatch({ type: types.ADD_FRUITS, payload: fruits }); // :(
-//       dispatch(getMeats(meats)); // :)
-//     });
-
-  // let fruits;
-  // let meats;
-  // axios.get(fruitsApi)
-  //   .then(res => {
-  //     fruits = res.data;
-
-  //     axios.get(meatsApi)
-  //       .then(res => {
-  //         meats = res.data;
-  //       });
-  //   });
-};

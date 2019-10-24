@@ -1,12 +1,48 @@
-nav {
+/* nav {
     height: 10vh;
     background: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     box-shadow: 2em;
-}
-a {
+ */
+ body {
+     /* background-image: url(../../../images/background1.jpg); */
+     background-repeat: no-repeat;
+     width: 100vw;
+     height: 100vh;
+ }
+nav {
+    background: #CDD2CA;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
+    -moz-box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  nav a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
+.link {
+    padding-left: 60vw;
+    display: flex;
+}
+  .navlink {
+    margin-right: 0;
+    color: black;
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  
+  .navlink:hover {
+    color: red;
+    background: #CDD2CA;
+    border-radius: 0.02vw;
+  }
+
+
+  .logo {
+    padding-left: 20vw;
+    position: absolute;
+  }
