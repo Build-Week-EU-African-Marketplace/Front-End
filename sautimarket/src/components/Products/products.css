@@ -18,6 +18,17 @@
     /* background: url("../../images/placeholder1.png") cover no-repeat; */
 }
 
+/* .modify-btns {
+display: flex;
+justify-content: space-between;
+width:70%
+} */
+
+.modify-product  {
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 
 .product-quick-view {
