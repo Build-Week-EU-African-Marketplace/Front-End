@@ -18,7 +18,8 @@ const Login = props => {
       .then(res => {
         localStorage.setItem("token", res.data.token);
         console.log(res.data);
-        props.history.push("/Products/products");
+        localStorage.setItem('token',res.data.token);
+        props.history.push("/dashboard");
       })
       .catch(err => setloginError("Wrong username/password"));
   };

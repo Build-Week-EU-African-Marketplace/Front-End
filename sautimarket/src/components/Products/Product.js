@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import placeHolderImg from "../../images/placeholder1.png"
+import placeHolderImg from "../../images/placeholder1.png";
 import "./products.css";
 
 export default function Product(props) {
   const productStyle = {
-    background: 'url("../../images/placeholder1.png") cover no-repeat',
-   
+    background: 'url("../../images/placeholder1.png") cover no-repeat'
   };
 
   return (
@@ -14,12 +13,22 @@ export default function Product(props) {
         {/* <div className="product-quick-view">
           <button className="button">Quick View</button>
         </div> */}
-        <img src={placeHolderImg} alt="beef" />
+        <img src={props.URL} alt={props.name} />
       </div>
       <div className="product-content-details">
-        <p>Cow Beef</p>
-        <p>Tasty cow beef</p>
-        <p>$1.99</p>
+        <p>{props.name}</p>
+        <p>{props.description}</p>
+        <p>${props.price}</p>
+        {props.canModify && (
+          <>
+            <p onClick={props.openEdit} className="modify-product">
+              Edit
+            </p>
+            <p onClick={props.deleteItem} className="modify-product">
+              Delete
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

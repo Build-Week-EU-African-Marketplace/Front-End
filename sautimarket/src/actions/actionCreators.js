@@ -35,7 +35,7 @@ export const addItem = (item) => dispatch => {
 
     const options = {
         method:"POST",
-        url:baseUrl + "/items/additem/",item,
+        url:baseUrl + "/items/additem/",
         data:item,
     }
     
@@ -69,7 +69,7 @@ export const deleteItem = (id) => dispatch => {
         });
     })
     .catch(err => {
-        alert("couldnt add item");
+        alert("couldnt delete item");
     })
 }
 
@@ -118,4 +118,25 @@ export const getAllItemsInCategory = (category) => dispatch => {
         alert("couldnt get item in category!");
     })
 
+}
+
+export const editItem = (item) => dispatch => {
+
+    const options = {
+        method:"PUT",
+        url:baseUrl + "/items/"+item.id,
+        data:item
+    }
+    
+    axiosWithAuth(options)
+    .then(res => {
+        console.log("edited ",res.data)
+        dispatch({
+            type:itemActions.EDIT_ITEM,
+            payload:item
+        });
+    })
+    .catch(err => {
+        alert("couldnt edit item");
+    })
 }

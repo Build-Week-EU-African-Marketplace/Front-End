@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import axiosWithAuth from "../../auth/axiosWithAuth";
 import { NavLink } from "react-router-dom";
 import Modal from "../UI/Modal/Modal";
 import { Button } from "../UI/Button/Button";
+import { connect } from "react-redux";
+import * as actionCreators from "../../actions/actionCreators";
+import Product from "../Products/Product";
 
 import "./mypage.css";
 
 const initialValues = {
-  name: "",
-  department: "",
-  description: "",
-  price: "",
-  category: "",
-  location: ""
+  name: "Beef",
+  //   department: "",
+  description: "Freshly slaughtered beef",
+  price: "200",
+  category: "Animal Products",
+  location: "Lagos,Nigeria",
+  user_id: 16,
+  URL: "https://via.placeholder.com/100"
 };
 
-export default function MyPage({ addItem }) {
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  };
+};
+
+function MyPage({ addItem, getItems, items, editItem, deleteItem }) {
   const [formData, setFormData] = useState(initialValues);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  useEffect(() => {
+    getItems();
+  }, []);
 
   const handleChange = e =>
     setFormData({ ...formData, ...{ [e.target.name]: e.target.value } });
@@ -30,22 +42,33 @@ export default function MyPage({ addItem }) {
   const addProductItem = e => {
     e.preventDefault();
     console.log(formData);
-    //addItem(formData)
+    if(formData.id) editItem(formData)
+    else addItem(formData);
+
+    setEditMode(false);
+    setModalIsOpen(false)
+  };
+
+  const openEditModal = (item) => {
+    setEditMode(true);
+    setModalIsOpen(true);
+    setFormData(item)
   };
 
   const getAllUsers = () => {
-      const options = {
-          method:'GET',
-          url:"https://lbs-african-marketplace.herokuapp.com/users"
-      }
-      axiosWithAuth(options)
-      .then(resp=>{
-          console.log(resp.data);
+    const options = {
+      method: "GET",
+      url: "https://lbs-african-marketplace.herokuapp.com/users"
+    };
+    axiosWithAuth(options)
+      .then(resp => {
+        console.log(resp.data);
       })
-      .catch(err =>{
-        alert(err)
-      })
-  }
+      .catch(err => {
+        alert(err);
+      });
+  };
+
   // URL: string
   // user_id: integer, references the id of the user the item is referenced to
 
@@ -106,20 +129,6 @@ export default function MyPage({ addItem }) {
                 />
               </div>
               <div>
-                <select
-                  required
-                  name="department"
-                  value={formData.category}
-                  onChange={handleChange}
-                  placeholder="Department"
-                >
-                  <option value="seller">seller</option>
-                  <option selected value="buyer">
-                    buyer
-                  </option>
-                </select>
-              </div>
-              <div>
                 <input
                   name="price"
                   type="number"
@@ -129,16 +138,32 @@ export default function MyPage({ addItem }) {
                 />
               </div>
               <div>
-                <button type="submit">Add </button>
+                <button type="submit">{editMode ? "Edit Item": "Add Item"} </button>
               </div>
             </form>
           </div>
         </div>
       </Modal>
-      <Button
-          onClick={getAllUsers}
-          value="Get ALL users"
-        />
+      {/* <Button width="100px" onClick={getAllUsers} value="Get ALL users" />
+      <Button width="100px" onClick={getItems} value="Get ALL items" /> */}
+      <div className="product-display">
+        {items.map(item => {
+          return (
+            <Product
+              key={item.id}
+              {...item}
+              canModify
+              openEdit={()=>openEditModal(item)}
+              deleteItem={() => deleteItem(item.id)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(MyPage);
