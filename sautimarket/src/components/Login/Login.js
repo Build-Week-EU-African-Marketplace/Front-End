@@ -11,17 +11,18 @@ const Login = props => {
     password: ""
   });
 
+  const [loginError, setloginError] = useState("");
   const submitInfo = (event, credentials) => {
     event.preventDefault();
     axios
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", credentials)
       .then(res => {
-        localStorage.setItem("token", res.data.authToken);
-
+        // localStorage.setItem("token", res.data.authToken);
+        // localStorage.setItem("userID", decoded.subject);
         console.log(res.data);
         props.history.push("/Products/products");
       })
-      .catch(err => console.log(err));
+      .catch(err => setloginError("Wrong username/password"));
   };
 
   const handleNewUser = event => {
@@ -30,9 +31,11 @@ const Login = props => {
   };
 
   return (
-    <div>
-      <StyledForm onSubmit={e => submitInfo(e, existingUser)}>
+    <div className="formContainer">
+      <div>
+        <StyledForm onSubmit={e => submitInfo(e, existingUser)}>
         <StyledH3>Sign in to Sauti Market</StyledH3>
+        <p style={{ color: "red" }}>{loginError}</p>
         <Label><strong>Username *</strong></Label>
         <StyledInput
           type="text"
@@ -54,6 +57,7 @@ const Login = props => {
         </StyledParagraph>
       </StyledForm>
     </div>
+    </div>
   );
 };
 
@@ -67,7 +71,7 @@ const StyledForm = Styled.form`
     margin: 0 auto;
     position: relative;
     text-align: left;
-    background: #FF0080;
+    /* background: #FF0080; */
     border: 1px solid #fff;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
