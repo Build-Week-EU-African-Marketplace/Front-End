@@ -10,6 +10,7 @@ const DELETE_ITEM = "DELETE_ITEM";
 const GET_ONE_ITEM = "GET_ONE_ITEM";
 const GET_ITEMS = "GET_ITEMS";
 const GET_ALL_ITEMS_IN_CATEGORY = "GET_ALL_ITEMS_IN_CATEGORY";
+const EDIT_ITEM = "EDIT_ITEM";
 
 export const userActions = {
     ADD_USER,
@@ -22,4 +23,5 @@ export const itemActions = {
     DELETE_ITEM,
     GET_ITEMS,GET_ONE_ITEM,
     GET_ALL_ITEMS_IN_CATEGORY,
+    EDIT_ITEM,
 }
