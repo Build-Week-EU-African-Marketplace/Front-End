@@ -7,6 +7,8 @@ import Register from "./components/Register/Register";
 
 
 import Products from "./components/Products/Products";
+import MyPage from "./components/MyPage/MyPage";
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
     <Route path="/products" component={Products} />
+    <Route path="/dashboard" component={MyPage} />
 
     </>
   );
