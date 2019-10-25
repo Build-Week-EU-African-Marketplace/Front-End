@@ -1,10 +1,13 @@
 .product-item {
- 
-    width:340px
+    width:300px;
+    border: black 2px solid;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .product-img-div {
     /* background:black; */
+ 
     width:100%;
     height:360px;
     /* background: url("../../images/placeholder1.png") cover no-repeat; */
@@ -23,11 +26,42 @@ display: flex;
 justify-content: space-between;
 width:70%
 } */
-
 .modify-product  {
+    /* padding: 10px;
     color:blue;
     text-decoration: underline;
     cursor: pointer;
+    text-decoration: none; */
+    background: #871f78;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    width: 80%;
+    margin: 0 auto;
+    margin-top:25px;
+    font-weight:bold;
+    font-size:14px;
+    height:50px;
+    border-radius:5px;
+
+}
+.modify-product2  {
+    /* padding-left: 20px;
+    color:red;
+    text-decoration: underline;
+    cursor: pointer;
+    text-decoration: none; */
+    background: #871f78;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    width: 80%;
+    margin: 0 auto;
+    margin-top:25px;
+    font-weight:bold;
+    font-size:14px;
+    height:50px;
+    border-radius:5px;
 }
 
 
@@ -57,9 +91,17 @@ width:70%
 .button {
     width:90%;
     text-align: center;
-    background: #333;
-    color:#fff;
-    border:none;
+    background: #871f78;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    width: 80%;
+    margin: 0 auto;
+    margin-top:25px;
+    font-weight:bold;
+    font-size:14px;
+    height:50px;
+    border-radius:5px;
     padding:10px 20px;
     display: none;
 
