@@ -9,7 +9,7 @@ export default function Navigation () {
     <div>
         <nav>
                 <div class = "logo">
-                <h1>SautiWomen</h1>
+                <h1>AfricaSokoni</h1>
                 </div>
                 <div class = "link">
                 <NavLink className="navlink" exact to="/Login" activeClassName="active">
@@ -21,11 +21,14 @@ export default function Navigation () {
                 </div>
         </nav>
 
-      <main>
+      {/* <main>
         <Route exact path="/Login" component={Login} />
         &nbsp;
         <Route path="/Register" component={Register} />
-      </main>
-    </div>
+      </main> */}
+    
+    
+
+      </div>
   );
 }

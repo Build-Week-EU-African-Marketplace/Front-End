@@ -11,10 +11,10 @@ import MyPage from "./components/MyPage/MyPage";
 function App() {
   return (
     <>
-    <Route path="/nav" component={Navigation} />
+    <Route path="/" component={Navigation} />
+    <Route path="/register" component={Register} />
+    <Route path="/login" component={Login} />
     <Route path="/header" component={Header} />
-    <Route exact path="/login" component={Login} />
-    <Route exact path="/register" component={Register} />
     <Route path="/products" component={Products} />
     <Route path="/dashboard" component={MyPage} />
     </>

@@ -89,8 +89,6 @@ const StyledInput = Styled.input`
     width: 188px;
     padding: 10px 25px;
     margin: 0 auto;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-    Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #9d9e9e;
