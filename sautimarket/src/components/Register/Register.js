@@ -17,7 +17,6 @@ const Register = props => {
       )
       .then(res => {
         localStorage.setItem("token", res.data.authToken);
-
         console.log(res.data);
         props.history.push("/login");
       })
@@ -30,24 +29,24 @@ const Register = props => {
   };
 
   return (
-    <div>
+    <div className="RegisterForm">
       <StyledForm onSubmit={e => submitInfo(e, newUser)}>
         <StyledH3>Please enter your credentials to sign up</StyledH3>
-        <Label>Username</Label>
+        <Label><strong>Username</strong></Label>
         <StyledInput
           type="text"
           value={newUser.username}
           name="username"
           onChange={handleNewUser}
         />
-        <Label>Password</Label>
+        <Label><strong>Password</strong></Label>
         <StyledInput
           type="text"
           value={newUser.password}
           name="password"
           onChange={handleNewUser}
         />
-        <Label>Department</Label>
+        <Label><strong>Department</strong></Label>
         <StyledInput
           type="text"
           value={newUser.department}
@@ -56,7 +55,7 @@ const Register = props => {
         />
         <StyledButton>Register</StyledButton>
         <StyledContent>
-          Do you have an account?
+        <strong>Do you have an account?</strong>
           <NavLink to="/Login">Log in</NavLink>
         </StyledContent>
       </StyledForm>
@@ -66,19 +65,18 @@ const Register = props => {
 
 export default Register;
 
-//styles
 
 const StyledForm = Styled.form`
-    padding: 0 30px 25px 30px;
+    padding: 0px 30px 25px 30px;
     width: 400px;
     margin: 0 auto;
     position: relative;
     text-align: left;
-    background: #FF0080;
-    border: 1px solid #fff;
+    background: #CDD2CA;
+    border: 1px solid red;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
+    -moz-box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -106,7 +104,7 @@ const StyledInput = Styled.input`
 `;
 
 const StyledH3 = Styled.h3`
-    text-align:center
+    text-align:center;
 `;
 
 const StyledButton = Styled.button`

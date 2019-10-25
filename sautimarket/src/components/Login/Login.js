@@ -16,6 +16,7 @@ const Login = props => {
     axios
       .post("https://lbs-african-marketplace.herokuapp.com/auth/login", credentials)
       .then(res => {
+        localStorage.setItem("token", res.data.token);
         console.log(res.data);
         localStorage.setItem('token',res.data.token);
         props.history.push("/dashboard");
@@ -29,7 +30,7 @@ const Login = props => {
   };
 
   return (
-    <div className="formContainer">
+    <div className="LogInForm">
       <div>
         <StyledForm onSubmit={e => submitInfo(e, existingUser)}>
         <StyledH3>Sign in to Sauti Market</StyledH3>
@@ -64,16 +65,16 @@ export default Login;
 
 
 const StyledForm = Styled.form`
-    padding: 0 30px 25px 30px;
+    padding: 0px 30px 25px 30px;
     width: 400px;
     margin: 0 auto;
     position: relative;
     text-align: left;
-    /* background: #FF0080; */
-    border: 1px solid #fff;
+    background: #CDD2CA;
+    border: 1px solid red;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
+    -moz-box-shadow: 0 1px 3px rgba(255, 0, 0, 0.8);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -101,7 +102,7 @@ const StyledInput = Styled.input`
 `;
 
 const StyledH3 = Styled.h3`
-    text-align:center
+    text-align:center;
 `;
 
 const StyledButton = Styled.button`
