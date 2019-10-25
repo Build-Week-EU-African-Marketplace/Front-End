@@ -112,7 +112,7 @@ const StyledButton = Styled.button`
     border-color: transparent;
     color: #fff;
     cursor: pointer;
-    width: 80%
+    width: 80%;
     margin: 0 auto;
     margin-top:25px;
     font-weight:bold;
